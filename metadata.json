@@ -1,0 +1,6 @@
+{
+  "name": "TSAI-OS Dashboard",
+  "description": "An elegant, interactive dark dashboard with glassmorphic cards, core system trackers, active media render status, and a TSAI intelligence coordinator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

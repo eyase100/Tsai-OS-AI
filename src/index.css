@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui;
+  --font-space: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-obsidian-950: #010204;
+  --color-obsidian-900: #020408;
+  --color-obsidian-800: #0b0f19;
+  --color-obsidian-700: #141c2f;
+  --color-cyan-action: #06b6d4;
+  --color-blue-action: #3b82f6;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.8; transform: scale(1); filter: blur(120px); }
+  50% { opacity: 0.95; transform: scale(1.05); filter: blur(140px); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+.scanline-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline-effect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 182, 212, 0) 0%,
+    rgba(6, 182, 212, 0.03) 10%,
+    rgba(6, 182, 212, 0.05) 50%,
+    rgba(6, 182, 212, 0.03) 90%,
+    rgba(6, 182, 212, 0) 100%
+  );
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+
+/* Scrollbars for terminal look */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(2, 4, 8, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.25);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.5);
+}
